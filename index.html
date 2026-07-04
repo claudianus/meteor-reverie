@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>METEOR REVERIE ~ 유성환상</title>
+<meta name="description" content="A Touhou-style bullet hell game. Keyboard + mouse. Play in your browser." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="stage">
+      <canvas id="game" width="480" height="720"></canvas>
+
+      <!-- Menu / state overlays -->
+      <div id="overlay" class="overlay">
+
+        <section id="screen-title" class="screen active" data-screen="title">
+          <div class="brand">
+            <div class="logo">METEOR<span>REVERIE</span></div>
+            <div class="subtitle">유성환상 ~ 탄막의 궤적</div>
+            <div class="tagline">A Touhou-style bullet hell · 도파민 폭발 탄막 슈팅</div>
+          </div>
+          <div class="cta" id="cta">PRESS <b>ENTER</b> / CLICK TO START</div>
+          <div class="controls">
+            <div class="ctrl"><span class="key">← → ↑ ↓</span><span>이동 · Move</span></div>
+            <div class="ctrl"><span class="key">W A S D</span><span>이동 · Move</span></div>
+            <div class="ctrl"><span class="key">Mouse</span><span>이동 · Move</span></div>
+            <div class="ctrl"><span class="key">Z</span><span>사격 · Shoot</span></div>
+            <div class="ctrl"><span class="key">L-Click</span><span>사격 · Shoot</span></div>
+            <div class="ctrl"><span class="key">X</span><span>폭탄 · Bomb</span></div>
+            <div class="ctrl"><span class="key">R-Click</span><span>폭탄 · Bomb</span></div>
+            <div class="ctrl"><span class="key">Shift</span><span>저속 · Focus</span></div>
+            <div class="ctrl"><span class="key">Esc / P</span><span>일시정지 · Pause</span></div>
+            <div class="ctrl"><span class="key">M</span><span>음소거 · Mute</span></div>
+          </div>
+          <div class="best">BEST <span id="best-title">0</span></div>
+        </section>
+
+        <section id="screen-pause" class="screen" data-screen="pause">
+          <div class="end-title">PAUSED</div>
+          <div class="cta">PRESS <b>Esc / P</b> TO RESUME</div>
+          <div class="sub">ENTER · 재시작 restart</div>
+        </section>
+
+        <section id="screen-over" class="screen" data-screen="over">
+          <div class="end-title bad">GAME OVER</div>
+          <div class="stats">
+            <div><label>SCORE</label><span id="over-score">0</span></div>
+            <div><label>BEST</label><span id="over-best">0</span></div>
+            <div><label>GRAZE</label><span id="over-graze">0</span></div>
+          </div>
+          <div class="cta">PRESS <b>ENTER</b> / CLICK TO RETRY</div>
+        </section>
+
+        <section id="screen-win" class="screen" data-screen="win">
+          <div class="end-title good">ALL CLEAR!</div>
+          <div class="stats">
+            <div><label>SCORE</label><span id="win-score">0</span></div>
+            <div><label>BEST</label><span id="win-best">0</span></div>
+            <div><label>GRAZE</label><span id="win-graze">0</span></div>
+          </div>
+          <div class="cta">PRESS <b>ENTER</b> / CLICK TO PLAY AGAIN</div>
+        </section>
+
+      </div>
+
+      <button id="mute" class="mute" title="Mute (M)" aria-label="Mute">♪</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
